@@ -1,0 +1,56 @@
+<meta charset = "utf-8">
+
+<canvas width="600" height="400">
+	
+</canvas>
+
+<script>
+
+	function drawSquare(xStart,yStart,xWidth,yHighth,colourSqr){
+		var screen = document.querySelector ("canvas");
+		var brush = screen.getContext("2d");
+
+		brush.strokeStyle = "black";
+
+		brush.fillStyle = colourSqr;
+		brush.fillRect(xStart,yStart,xWidth,yHighth);
+		brush.strokeRect(xStart,yStart,xWidth,yHighth);
+	}
+
+	function writeText(x , y, text) {
+        var screen = document.querySelector("canvas");
+        var brush = screen.getContext("2d");
+
+        brush.font = "15px Georgia";
+        brush.fillStyle = "black";
+        brush.fillText(text, x, y);    
+    }
+
+    var series2009 = [6, 47, 41, 3, 3];
+    var series2019 = [81, 9, 3, 3, 4];
+    var colourSqr = ["blue","green","yellow", "red","gray"];
+
+    function drawGraph (series,xStart,xWidth,text){
+
+    	writeText(xStart,40,text);
+
+    	for (var count = 0; count <= colourSqr.length; count++){
+
+    		var lastValue;
+
+    		if (count != 0){
+
+    			lastValue = series[count - 1] + lastValue;
+    		}
+    		else {
+    			lastValue = 0
+    		}
+
+    		drawSquare(xStart,lastValue+50,xWidth,series[count],colourSqr[count]);
+    	}
+    }
+
+	drawGraph(series2009,50,50,"2009");
+	drawGraph(series2019,150,50,"2019");
+
+</script>

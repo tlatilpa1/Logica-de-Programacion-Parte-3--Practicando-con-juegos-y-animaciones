@@ -1,0 +1,39 @@
+<meta charset = "utf-8">
+
+<canvas width="600" height="400">
+	
+</canvas>
+
+<script>
+
+	function drawSquare(xStart,yStart,xWidth,yHighth,colourSqr){
+		var screen = document.querySelector ("canvas");
+		var brush = screen.getContext("2d");
+
+		brush.strokeStyle = "black";
+
+		brush.fillStyle = colourSqr;
+		brush.fillRect(xStart,yStart,xWidth,yHighth);
+		brush.strokeRect(xStart,yStart,xWidth,yHighth);
+	}
+
+/*
+	var xStart = 0
+
+	while (xStart < 600){
+
+		drawSquare(xStart,0,50,50,"red");
+		drawSquare(xStart,50,50,50,"yellow");
+		drawSquare(xStart,100,50,50,"green");
+		xStart = xStart + 50;
+	}
+	*/
+
+	for (xStart = 0; xStart < 600; xStart = xStart + 50){
+
+		drawSquare(xStart,0,50,50,"red");
+		drawSquare(xStart,50,50,50,"yellow");
+		drawSquare(xStart,100,50,50,"green");
+	}
+	
+</script>
